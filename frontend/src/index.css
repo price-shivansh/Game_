@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-display: 'Barlow Condensed', sans-serif;
+
+  --color-primary: #ff5500; /* Basketball Orange */
+  --color-secondary: #0066ff; /* Electric Blue Accents */
+  --color-dark-bg: #09090a;
+  --color-dark-card: #121215;
+  --color-dark-border: rgba(255, 85, 0, 0.18);
+  --color-dark-glow: rgba(255, 85, 0, 0.25);
+}
+
+/* Custom Base Styles */
+body {
+  background-color: var(--color-dark-bg);
+  color: #f3f4f6;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  margin: 0;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(255, 85, 0, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(0, 102, 255, 0.04) 0px, transparent 50%);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dynamic Stadium Lighting Effects */
+.stadium-beam {
+  background: linear-gradient(180deg, rgba(255, 85, 0, 0.12) 0%, rgba(9, 9, 10, 0) 100%);
+  filter: blur(40px);
+}
+
+.stadium-beam-blue {
+  background: linear-gradient(180deg, rgba(0, 102, 255, 0.1) 0%, rgba(9, 9, 10, 0) 100%);
+  filter: blur(40px);
+}
+
+/* Street Court Components */
+.court-panel {
+  background: var(--color-dark-card);
+  border: 2px solid #1c1c22;
+  box-shadow: 6px 6px 0px 0px #121215;
+  transition: all 0.2s ease-in-out;
+}
+
+.court-panel:hover {
+  border-color: var(--color-primary);
+  box-shadow: 6px 6px 0px 0px var(--color-primary);
+  transform: translate(-2px, -2px);
+}
+
+/* Scoreboard Theme Card */
+.scoreboard-panel {
+  background: #0d0d0f;
+  border: 3px solid #ff5500;
+  box-shadow: 0px 0px 20px rgba(255, 85, 0, 0.2), inset 0px 0px 10px rgba(255, 85, 0, 0.1);
+  position: relative;
+}
+
+.scoreboard-panel::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+
+.scoreboard-digital {
+  font-family: monospace;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #ff5500;
+  text-shadow: 0 0 10px rgba(255, 85, 0, 0.7);
+}
+
+.scoreboard-digital-green {
+  font-family: monospace;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #39ff14;
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
+}
+
+/* Neon Text Glows */
+.text-glow-orange {
+  text-shadow: 0 0 12px rgba(255, 85, 0, 0.6);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 12px rgba(0, 102, 255, 0.6);
+}
+
+/* Athletic Grid Buttons */
+.btn-athletic-orange {
+  position: relative;
+  background-color: #ff5500;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid #ff5500;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-athletic-orange:hover {
+  background-color: #e04b00;
+  border-color: #e04b00;
+  box-shadow: 6px 6px 0px 0px #000000;
+  transform: translate(-2px, -2px);
+}
+
+.btn-athletic-orange:active {
+  box-shadow: 0px 0px 0px 0px #000000;
+  transform: translate(4px, 4px);
+}
+
+.btn-athletic-blue {
+  position: relative;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid #0066ff;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-athletic-blue:hover {
+  background-color: #0066ff;
+  box-shadow: 6px 6px 0px 0px #000000;
+  transform: translate(-2px, -2px);
+}
+
+.btn-athletic-blue:active {
+  box-shadow: 0px 0px 0px 0px #000000;
+  transform: translate(4px, 4px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f1f24;
+  border-radius: 2px;
+  border: 2px solid #09090a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5500;
+}
+
+/* Input Styles */
+input, select, textarea {
+  background-color: #121215 !important;
+  border: 2px solid #22222a !important;
+  color: white !important;
+  border-radius: 8px !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #ff5500 !important;
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 85, 0, 0.15);
+}
+
+/* Marquee scrolling decoration */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}

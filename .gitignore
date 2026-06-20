@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+ENV/
+env/
+
+# Databases
+*.db
+backend/app/ignitehoops.db
+backend/ignitehoops.db
+
+# OS Files
+.DS_Store
+Thumbs.db
